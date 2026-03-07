@@ -6,6 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wedding Invitation</title>
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -60,73 +63,159 @@
         <a href="#home">Home</a>
         <a href="#ceremonies">Ceremonies</a>
         <a href="#venue">Venue</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#rsvp">RSVP</a>
+        <a href="#gallery-invitation">Gallery</a>
     </nav>
 
     <div class="hero-content">
         <h3>Save The Date</h3>
         <h1>Pooja ❤️ Saurav</h1>
         <p>30 April 2026</p>
-        <div id="countdown"></div>
-    </div>
+        <div id="countdown">
+            <div class="time-box">
+                <span id="days">00</span>
+                <p>Days</p>
+            </div>
 
+            <div class="time-box">
+                <span id="hours">00</span>
+                <p>Hours</p> 
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <p>Minutes</p>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <p>Seconds</p>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section id="ceremonies">
+<section id="ceremonies" class="ceremony-section">
+
 <h2>Ceremonies</h2>
 
-<div class="card">
-<h3>Haldi</h3>
-<p>Date: 13 Dec</p>
-<p>Time: 10 AM</p>
+<div class="ceremony-grid">
+
+<div class="ceremony-card sikka" onclick="showCeremony('sikka')">
+    <img src="images/lagantika.jpg">
+    <div class="ceremony-overlay">
+        <h3>Sikka</h3>
+        <p>13 Dec</p>
+        <p>10:00 AM</p>
+    </div>
 </div>
 
-<div class="card">
-<h3>Mehendi</h3>
-<p>Date: 13 Dec</p>
-<p>Time: 5 PM</p>
+<div class="ceremony-card" onclick="showCeremony('haldi')">
+    <img src="images/haldi.jpg">
+    <div class="ceremony-overlay">
+        <h3>Haldi</h3>
+        <p>13 Dec</p>
+        <p>10:00 AM</p>
+    </div>
 </div>
 
-<div class="card">
-<h3>Sangeet</h3>
-<p>Date: 14 Dec</p>
-<p>Time: 7 PM</p>
+<div class="ceremony-card mehndi" onclick="showCeremony('mehndi')">
+    <img src="images/mehndi.jpg">
+    <div class="ceremony-overlay">
+        <h3>Mehndi</h3>
+        <p>13 Dec</p>
+        <p>10:00 AM</p>
+    </div>
 </div>
 
-<div class="card">
-<h3>Wedding</h3>
-<p>Date: 15 Dec</p>
-<p>Time: 9 PM</p>
+<div class="ceremony-card chaak" onclick="showCeremony('chaak')">
+    <img src="images/chaak.jpg">
+    <div class="ceremony-overlay">
+        <h3>Chaak</h3>
+        <p>13 Dec</p>
+        <p>10:00 AM</p>
+    </div>
 </div>
+
+<div class="ceremony-card bhaat" onclick="showCeremony('bhaat')">
+    <img src="images/bhaat.jpg">
+    <div class="ceremony-overlay">
+        <h3>Bhaat</h3>
+        <p>13 Dec</p>
+        <p>10:00 AM</p>
+    </div>
+</div>
+
+<div class="ceremony-card wedding" onclick="showCeremony('wedding')">
+    <img src="images/wedding.jpg">
+    <div class="ceremony-overlay">
+        <h3>Wedding</h3>
+        <p>13 Dec</p>
+        <p>10:00 AM</p>
+    </div>
+</div>
+
+<div class="ceremony-card vidai" onclick="showCeremony('vidai')">
+    <img src="images/vidaai.jpg">
+    <div class="ceremony-overlay">
+        <h3>Vidaai</h3>
+        <p>13 Dec</p>
+        <p>10:00 AM</p>
+    </div>
+</div>
+
+</div>
+
+<div id="ceremony-info"></div>
 
 </section>
 
 <section id="venue">
-<h2>Venue</h2>
-
-<iframe
-src="https://maps.google.com/maps?q=delhi&t=&z=13&ie=UTF8&iwloc=&output=embed"
-width="100%" height="300"></iframe>
-
+  <h2>Venue</h2>
+  <div class="venue-map-container">
+    <iframe id="venueMap" 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.514595866733!2d77.22161457422081!3d28.584335286270043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2f14ef11553%3A0xd5d01a8f6d40eafb!2sNDMC%20Barat%20Ghar-Lodhi%20Colony!5e0!3m2!1sen!2sin!4v1772911151968!5m2!1sen!2sin" 
+      frameborder="0" 
+      allowfullscreen>
+    </iframe>
+  </div>
 </section>
 
-<section id="gallery">
-<h2>Gallery</h2>
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-<img src="photo3.jpg">
-</section>
+<section id="gallery-invitation">
+  <h2>Gallery & Invitation Cards</h2>
 
-<section id="rsvp">
-<h2>RSVP</h2>
+  <!-- Scroll Arrows -->
+  <button class="scroll-arrow left" onclick="scrollGallery(-1)">&#10094;</button>
+  <button class="scroll-arrow right" onclick="scrollGallery(1)">&#10095;</button>
+  
+  <div class="scroll-container">
+    <div class="scroll-item">
+      <img src="images/couple1.jpg" alt="Gallery Image 1" onclick="openFullImage(this)">
+    </div>
+    <div class="scroll-item">
+      <img src="images/couple2.jpg" alt="Gallery Image 2" onclick="openFullImage(this)">
+    </div>
+    <div class="scroll-item">
+      <img src="images/couple3.jpg" alt="Gallery Image 2" onclick="openFullImage(this)">
+    </div>
+    <div class="scroll-item">
+      <img src="images/couple4.jpg" alt="Gallery Image 2" onclick="openFullImage(this)">
+    </div>
+    <div class="scroll-item">
+      <img src="images/couple_blur.jpg" alt="Gallery Image 2" onclick="openFullImage(this)">
+    </div>
+    <div class="scroll-item">
+      <img src="images/card1.jpeg" alt="Invitation Card 1" onclick="openFullImage(this)">
+    </div>
+    <div class="scroll-item">
+      <img src="images/card2.jpeg" alt="Invitation Card 2" onclick="openFullImage(this)">
+    </div>
+  </div>
 
-<form>
-<input type="text" placeholder="Your Name">
-<input type="number" placeholder="Guests">
-<button>Submit</button>
-</form>
-
+  <!-- Fullscreen Lightbox -->
+<div id="fullImageLightbox" class="lightbox">
+  <span class="close" onclick="closeFullImage()">&times;</span>
+  <img id="fullImage" src="" alt="Full Image">
+</div>
 </section>
 
 <footer>

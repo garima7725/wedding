@@ -86,13 +86,6 @@ transition:all 0.3s ease;
 }
 
 nav a:hover{
-background:white;
-color:#c2185b;
-border:2px solid white;
-transform:translateY(-2px);
-}
-
-nav a:hover{
 color:#528780;
 
 background:#890025;
@@ -382,36 +375,328 @@ flex-direction:column;
 align-items:center;
 
 position:relative;
-color:white;
-}
-
-#hero-section::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-
-background:rgba(0,0,0,0.35);
-backdrop-filter:blur(6px);
-
-z-index:0;
+overflow:hidden;  
+color:#38000A;
 }
 
 .hero-content{
 position:relative;
-z-index:2;
+z-index:3;
 
 text-align:center;
 
 margin-top:120px;
 }
 
-.hero-content h1{
-font-size:48px;
+.hero-content h3{
 font-family:'Playfair Display',serif;
+font-size:28px;
+letter-spacing:4px;
+color:#38000A;
+text-transform:uppercase;
 }
+
+.hero-content h1{
+font-size:70px;
+font-family:'Great Vibes', cursive;
+color:#38000A;
+letter-spacing:3px;
+text-shadow:0 4px 15px rgba(0,0,0,0.4);
+}
+
+.hero-content p{
+font-family:'Dancing Script',cursive;
+font-size:32px;
+color:#38000A;
+margin-top:10px;
+}
+
+#ceremonies {
+  overflow-x: hidden;
+  position: relative;
+  /* no blur here */
+  background: none;
+}
+
+#ceremonies::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* your card image as background */
+  background-image: url('images/handinhand.jpg'); /* default image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* subtle blur */
+  filter: blur(4px);
+  z-index: 0;  /* behind everything */
+  pointer-events: none; /* don’t block clicks */
+}
+#ceremonies > *{
+position:relative;
+z-index:1;
+}
+
+#ceremonies h2{
+font-family:'Allura', cursive;
+font-size:48px;
+color:#c2185b;
+letter-spacing:2px;
+margin-bottom:40px;
+}
+
+#ceremonies h2::after{
+content:"";
+width:80px;
+height:3px;
+background:#c2185b;
+display:block;
+margin:10px auto;
+border-radius:2px;
+}
+
+.card h3{
+font-family:'Allura', cursive;
+font-size:32px;
+color:#c2185b;
+margin-bottom:10px;
+}
+
+.ceremony-grid{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:30px;
+
+max-width:1100px;
+
+margin:auto;
+
+}
+
+.ceremony-card{
+position:relative;
+
+width:240px;
+height:200px;
+
+border-radius:20px;
+overflow:hidden;
+
+cursor:pointer;
+
+border:3px solid transparent;
+
+background-image:
+linear-gradient(white, white),
+linear-gradient(135deg,#d4af37,#ffd700,#f5d76e,#d4af37);
+
+background-origin:border-box;
+background-clip:padding-box,border-box;
+
+transition:0.4s;
+}
+
+.ceremony-card::before{
+content:"";
+
+position:absolute;
+
+top:-50%;
+
+left:-50%;
+
+width:200%;
+
+height:200%;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(94, 14, 223, 0.4),
+transparent
+);
+
+transform:rotate(25deg);
+
+transition:0.6s;
+
+opacity:0;
+}
+
+.ceremony-card:hover{
+
+transform:translateY(-8px) scale(1.03);
+
+box-shadow:0 20px 40px rgba(0,0,0,0.25);
+
+}
+
+.ceremony-card img{
+position:absolute;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+transition:transform 0.5s;
+}
+
+.ceremony-card:hover img{
+
+transform:scale(1.1);
+
+}
+
+.ceremony-overlay{
+
+position:absolute;
+bottom:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(139, 128, 128, 0.493);
+
+color:#38000A;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+transform:translateY(100%);
+opacity:0;
+
+transition:transform 0.5s ease, opacity 0.4s ease;
+
+z-index:2;
+backdrop-filter: blur(3px);
+}
+
+.ceremony-card:hover .ceremony-overlay{
+transform:translateY(0);
+opacity:1;
+}
+
+.ceremony-overlay h3{
+
+font-family:'Allura',cursive;
+
+font-size:34px;
+
+margin-bottom:5px;
+
+}
+
+.ceremony-card h3{
+font-family:'Allura',cursive;
+font-size:32px;
+}
+
+.ceremony-card:hover{
+transform:translateY(-10px) scale(1.05);
+}
+
+.card-content{
+
+padding:15px;
+
+text-align:center;
+
+}
+
+.card-content h3{
+
+font-family:'Allura',cursive;
+
+font-size:30px;
+
+color:#c2185b;
+
+margin-bottom:5px;
+
+}
+
+.card-content p{
+
+font-size:14px;
+
+color:#444;
+
+}
+
+/* Function Colors */
+
+.sikka{background-color:#ffccbc;}
+.haldi{background-color:#fff59d;}
+.mehndi{background-color:#c8e6c9;}
+.chaak{background-color:#f8bbd0;}
+.bhaat{background-color:#d1c4e9;}
+.wedding{background-color:#ffcdd2;}
+.vidai{background-color:#ffe0b2;}
+
+#ceremony-info {
+  display: none; /* hidden by default */
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 15px;
+  background: rgba(161, 0, 0, 0.85); /* slightly transparent */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: black;
+  transition: all 0.5s ease; /* smooth fade-in */
+}
+
+#ceremony-info.show {
+  display: block; /* will show when JS adds this class */
+  animation: fadeIn 0.5s ease forwards; /* optional fade-in animation */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#ceremony-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: black; 
+  margin-bottom: 20px;
+}
+
+#ceremony-info p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: black;
+}
+.ceremony-section{
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+transition:0.6s ease;
+} 
 
 .slider{
 position:absolute;
@@ -419,16 +704,25 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-z-index:1;
+
+overflow:hidden;
+
+z-index:0;  
 }
 
 .slide{
 position:absolute;
+top:0;
+left:0;
+
 width:100%;
 height:100%;
+
 background-size:cover;
 background-position:center;
-transform:scale(1.1);
+
+transform:scale(1);
+
 animation:zoom 8s linear infinite;
 
 opacity:0;
@@ -485,4 +779,177 @@ left:20px;
 
 .right {
 right:20px;
+}
+
+#countdown{
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:15px;
+
+margin-top:25px;
+
+max-width:500px;
+
+margin-left:auto;
+margin-right:auto;
+}
+
+.time-box{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(8px);
+
+padding:20px 25px;
+
+border-radius:15px;
+
+min-width:90px;
+
+box-shadow:0 6px 20px rgba(0,0,0,0.3);
+
+transition:transform 0.3s;
+}
+
+.time-box span{
+font-size:34px;
+font-weight:bold;
+color:#890025;
+display:block;
+}
+
+.time-box p{
+font-size:14px;
+margin-top:5px;
+color:#890025;
+letter-spacing:1px;
+}
+
+.time-box.animate{
+transform:scale(1.15);
+}
+
+#venue {
+  width: 100%;
+  margin: 0;
+  padding: 60px 20px; /* space for title */
+  background: #528780; /* optional light theme background */
+}
+
+#venue h2 {
+  font-family: 'Allura', cursive; /* same as ceremony section */
+  font-size: 48px;
+  color: #c2185b; /* theme color */
+  margin-bottom: 30px; /* space between title and map */
+  text-align: center;
+}
+
+.venue-map-container {
+  width: 100%;
+  height: 500px; /* full section height */
+  overflow: hidden;
+  border-radius: 20px; /* optional rounded corners */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* soft shadow */
+}
+
+.venue-map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Gallery Section */
+#gallery-invitation {
+  width: 100%;
+  background: #528780;
+  padding: 40px 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#gallery-invitation h2 {
+  color: #c2185b; /* theme color */
+  font-family: 'Allura', cursive;
+  font-size: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0 auto;
+  /* Hide scrollbar for all browsers */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.scroll-item {
+  flex: 0 0 auto;
+}
+
+.scroll-item img {
+  height: 300px;
+  object-fit: cover;
+  cursor: pointer;
+  display: block; /* remove any inline gaps */
+}
+
+/* Remove default scrollbar appearance */
+.scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #c2185b;
+  border-radius: 4px;
+}
+
+/* Arrows for scrolling */
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.scroll-arrow.left { left: 10px; }
+.scroll-arrow.right { right: 10px; }
+
+.scroll-arrow:hover { background: rgba(0,0,0,0.6); }
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.95);
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  z-index: 100000;
 }
