@@ -225,3 +225,4 @@ scrollContainer.addEventListener("mouseleave", () => {
     scrollContainer.scrollBy({ left: 1, behavior: "smooth" });
   }, 20);
 });
+
