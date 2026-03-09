@@ -1,3 +1,4 @@
+
 var weddingDate = new Date("Apr 30, 2026 24:00:00").getTime();
 
 setInterval(function(){
@@ -73,6 +74,12 @@ setTimeout(function(){
 document.getElementById("envelopeScreen").style.display="none";
 document.getElementById("mainContent").style.display="block";
 
+/* 🎵 Play music */
+const music = document.getElementById("bgMusic");
+if(music){
+music.play().catch(()=>{});
+}
+
 },1200);
 
 }
@@ -122,24 +129,10 @@ function prevSlide(){
     showSlide(currentSlide - 1);
 }
 
-// let slides = document.querySelectorAll(".slide");
-// let currentSlide = 0;
-
-// function changeSlide() {
-
-//     slides[currentSlide].classList.remove("active");
-
-//     currentSlide++;
-
-//     if (currentSlide >= slides.length) {
-//         currentSlide = 0;
-//     }
-
-//     slides[currentSlide].classList.add("active");
-// }
-
-// // Run every 5 seconds
-// setInterval(changeSlide, 5000);
+/* Auto change hero slide every 3 seconds */
+setInterval(function(){
+    nextSlide();
+}, 3000);
 
 function showCeremony(type) {
     const section = document.getElementById("ceremonies");
@@ -194,55 +187,6 @@ function showCeremony(type) {
     // Update section background
     section.style.backgroundImage = `linear-gradient(rgba(255,250,245,0.9), rgba(255,250,245,0.9)), url(${ceremony.img})`;
 }
-
-// function showCeremony(type){
-
-// const info = document.getElementById("ceremony-info");
-
-// const data = {
-
-// sikka:{
-// text:"Sikka ceremony is a sacred ritual where the groom is welcomed and blessed by the bride’s family. It symbolizes acceptance and blessings for the marriage.",
-// color:"#ffccbc"
-// },
-
-// haldi:{
-// text:"Haldi ceremony involves applying turmeric paste to the bride and groom for purification and glowing skin. It symbolizes protection from evil.",
-// color:"#fff59d"
-// },
-
-// mehndi:{
-// text:"Mehndi ceremony is celebrated with henna designs on the bride’s hands and feet. It symbolizes love, joy, and prosperity.",
-// color:"#c8e6c9"
-// },
-
-// chaak:{
-// text:"Chaak is a traditional ritual where sacred items are prepared for wedding ceremonies.",
-// color:"#f8bbd0"
-// },
-
-// bhaat:{
-// text:"Bhaat ceremony is performed by the bride's maternal family where they bless the bride and bring gifts.",
-// color:"#d1c4e9"
-// },
-
-// wedding:{
-// text:"The wedding ceremony includes sacred rituals like pheras around the holy fire which bind the couple in marriage.",
-// color:"#ffcdd2"
-// },
-
-// vidai:{
-// text:"Vidai marks the emotional farewell of the bride from her parental home as she begins her new life.",
-// color:"#ffe0b2"
-// }
-
-// };
-
-// info.innerHTML = data[type].text;
-
-// document.getElementById("ceremonies").style.background = data[type].color;
-
-// }
 
 // Lightbox
 function openFullImage(img) {
