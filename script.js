@@ -63,24 +63,23 @@ document.getElementById("mainContent").style.display="block";
 
 }
 
-function openEnvelope(){
+function enterInvitation(){
 
-const envelope = document.querySelector(".envelope");
-
-envelope.classList.add("open");
-
-setTimeout(function(){
-
-document.getElementById("envelopeScreen").style.display="none";
+document.getElementById("welcomeScreen").style.display="none";
 document.getElementById("mainContent").style.display="block";
 
-/* 🎵 Play music */
 const music = document.getElementById("bgMusic");
-if(music){
-music.play().catch(()=>{});
-}
 
-},1200);
+if(music){
+music.muted = false;
+music.volume = 0.7;
+
+music.play().then(()=>{
+console.log("Music playing");
+}).catch(error=>{
+console.log("Autoplay blocked", error);
+});
+}
 
 }
 

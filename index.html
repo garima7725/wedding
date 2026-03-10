@@ -14,29 +14,26 @@
 
 <body>
 
-<div id="envelopeScreen">
+    <div id="welcomeScreen">
 
-<div class="light-particles"></div>
+        <div class="welcome-content">
 
-<div class="envelope-wrapper">
+            <img src="images/ganeshji.png" class="ganesh-img">
 
-<div class="envelope">
+            <h2>श्री गणेशाय नमः</h2>
 
-<div class="flap"></div>
+            <p class="ganesh-mantra">
+            वक्रतुंड महाकाय सूर्यकोटि समप्रभ।<br>
+            निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥
+            </p>
 
-<div class="letter">
-<h2>Pooja ❤️ Saurav</h2>
-<p>You are invited to celebrate our wedding</p>
-<p>30 April 2026</p>
-</div>
+            <p>With the blessings of Lord Ganesha</p>
 
-</div>
+            <button class="enter-btn" onclick="enterInvitation()">Enter Invitation</button>
+   
+        </div>
 
-<button class="open-btn" onclick="openEnvelope()">Open Invitation</button>
-
-</div>
-
-</div>
+    </div>
 
 <div id="mainContent">
 
@@ -48,12 +45,19 @@
 
     <div class="slider">
 
-        <div class="slide active" style="background-image:url('images/couple_blur.jpeg')"></div>
+        <!-- <div class="slide active" style="background-image:url('images/couple_blur.jpeg')"></div>
         <div class="slide" style="background-image:url('images/couple1.jpeg')"></div>
         <div class="slide" style="background-image:url('images/couple2.png')"></div>
         <div class="slide" style="background-image:url('images/couple3.jpeg')"></div>
         <div class="slide" style="background-image:url('images/couple4.png')"></div>
-        <div class="slide" style="background-image:url('images/couple5.png')"></div>
+        <div class="slide" style="background-image:url('images/couple5.png')"></div> -->
+
+        <div class="slide slide1 active"></div>
+        <div class="slide slide2"></div>
+        <div class="slide slide3"></div>
+        <div class="slide slide4"></div>
+        <div class="slide slide5"></div>
+        <div class="slide slide6"></div>
 
         <!-- 🔥 Arrows -->
         <button class="arrow left" onclick="prevSlide()">&#10094;</button>
@@ -231,7 +235,7 @@
 
 </div>
 
-<audio id="bgMusic" loop>
+<audio id="bgMusic" preload="auto" loop>
   <source src="music/wedding-music.mp3" type="audio/mpeg">
 </audio>
 
