@@ -201,27 +201,71 @@ function closeFullImage() {
 
 // Horizontal scroll
 const scrollContainer = document.querySelector(".scroll-container");
-const scrollStep = 300; // pixels to move per arrow click
+const scrollStep = 600;
 
-function scrollGallery(direction) {
-  if (!scrollContainer) return;
+// duplicate images for infinite loop
+scrollContainer.innerHTML += scrollContainer.innerHTML;
+
+// arrows
+function scrollGallery(direction){
   scrollContainer.scrollBy({
     left: direction * scrollStep,
     behavior: "smooth"
   });
 }
 
-// Auto-scroll with pause on hover
-let autoScrollInterval = setInterval(() => {
-  if (!scrollContainer) return;
-  scrollContainer.scrollBy({ left: 1, behavior: "smooth" });
-}, 20);
+// auto scroll
+let autoScroll = setInterval(()=>{
+  scrollContainer.scrollLeft += 1;
 
-// Pause auto-scroll when mouse is over the container
-scrollContainer.addEventListener("mouseenter", () => clearInterval(autoScrollInterval));
-scrollContainer.addEventListener("mouseleave", () => {
-  autoScrollInterval = setInterval(() => {
-    scrollContainer.scrollBy({ left: 1, behavior: "smooth" });
-  }, 20);
+  if(scrollContainer.scrollLeft >= scrollContainer.scrollWidth/2){
+    scrollContainer.scrollLeft = 0;
+  }
+
+},20);
+
+// pause on hover
+scrollContainer.addEventListener("mouseenter",()=>{
+  clearInterval(autoScroll);
 });
 
+scrollContainer.addEventListener("mouseleave",()=>{
+  autoScroll = setInterval(()=>{
+    scrollContainer.scrollLeft += 1;
+
+    if(scrollContainer.scrollLeft >= scrollContainer.scrollWidth/2){
+      scrollContainer.scrollLeft = 0;
+    }
+
+  },20);
+});
+
+
+const slider = document.querySelector(".scroll-container");
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener("mousedown", (e) => {
+  isDown = true;
+  slider.classList.add("active");
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener("mouseleave", () => {
+  isDown = false;
+});
+
+slider.addEventListener("mouseup", () => {
+  isDown = false;
+});
+
+slider.addEventListener("mousemove", (e) => {
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 2; // speed multiplier
+  slider.scrollLeft = scrollLeft - walk;
+});
