@@ -973,10 +973,12 @@ transform:scale(1.15);
   margin: 0 auto;
 
   cursor: grab;              /* allow drag feeling */
+
+  -webkit-overflow-scrolling: touch;
   
   /* Hide scrollbar for all browsers */
-  scrollbar-width: none;     /* Firefox */
-  -ms-overflow-style: none;  /* IE 10+ */
+  scrollbar-width: thin;     
+  scrollbar-color:#c2185b #eee;  /* IE 10+ */
 }
 
 .scroll-container:active{
@@ -994,13 +996,22 @@ transform:scale(1.15);
   display: block; /* remove any inline gaps */
 }
 
-/* Remove default scrollbar appearance */
-.scroll-container::-webkit-scrollbar {
-  height: 8px;
+.scroll-container::-webkit-scrollbar{
+  height:10px;
 }
-.scroll-container::-webkit-scrollbar-thumb {
-  background: #c2185b;
-  border-radius: 4px;
+
+.scroll-container::-webkit-scrollbar-track{
+  background:#eee;
+  border-radius:10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb{
+  background:#c2185b;
+  border-radius:10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover{
+  background:#890025;
 }
 
 /* Arrows for scrolling */
